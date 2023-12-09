@@ -7,6 +7,8 @@ import arcadesFrameBg from "../../public/assets/images/arcades_frame_bg.svg";
 import newGameBtn from "../../public/assets/images/new_game_btn.svg";
 import joinGameBtn from "../../public/assets/images/join_game_btn.svg";
 import selectGameBg from "../../public/assets/images/select_game_bg.svg";
+import selectCardBg from "../../public/assets/images/select_card_bg.svg";
+import timerLight from "../../public/assets/images/timer_light.svg";
 
 export type TImages =
   | "logoBig"
@@ -17,7 +19,9 @@ export type TImages =
   | "arcadesFrameBg"
   | "newGameBtn"
   | "joinGameBtn"
-  | "selectGameBg";
+  | "selectGameBg"
+  | "selectCardBg"
+  | "timerLight";
 
 export type TNextImage = {
   src: string;
@@ -35,4 +39,6 @@ export const icons: Record<TImages, TNextImage> = {
   newGameBtn,
   joinGameBtn,
   selectGameBg,
+  selectCardBg,
+  timerLight,
 };

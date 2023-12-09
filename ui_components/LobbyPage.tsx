@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { icons } from "../utils/images";
 import { Arcades } from "./Arcades";
 import { StartGame } from "./StartGame";
+import { SelectCards } from "./SelectCards";
 
 export const LobbyPage = () => {
   const [step, setStep] = useState(1);
@@ -25,10 +26,9 @@ export const LobbyPage = () => {
       case 1:
         return <Arcades setStep={setStep} step={step} />;
       case 2:
-        return <StartGame />;
+        return <StartGame setStep={setStep} step={step} />;
       case 3:
-        return;
-        <></>;
+        return <SelectCards setStep={setStep} step={step}></SelectCards>;
       default:
         return <></>;
     }
