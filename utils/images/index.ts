@@ -17,6 +17,10 @@ import closeRed from "../../public/assets/images/close_red.svg";
 import modalClose from "../../public/assets/images/modal-close.svg";
 import copyCode from "../../public/assets/images/copy-code.svg";
 import mintBtn from "../../public/assets/images/mint_btn.svg";
+import cancelBtn from "../../public/assets/images/cancel_btn.svg";
+import joinBtn from "../../public/assets/images/join_btn.svg";
+import sendBatleBtn from "../../public/assets/images/send_battle_btn.svg";
+import yesBtn from "../../public/assets/images/yes_btn.svg";
 
 export type TImages =
   | "logoBig"
@@ -38,7 +42,11 @@ export type TImages =
   | "modalClose"
   | "copyCode"
   | "timerLight"
-  | "mintBtn";
+  | "mintBtn"
+  | "sendBatleBtn"
+  | "joinBtn"
+  | "cancelBtn"
+  | "yesBtn";
 
 export type TNextImage = {
   src: string;
@@ -66,4 +74,8 @@ export const icons: Record<TImages, TNextImage> = {
   closeRed,
   copyCode,
   mintBtn,
+  cancelBtn,
+  yesBtn,
+  joinBtn,
+  sendBatleBtn,
 };

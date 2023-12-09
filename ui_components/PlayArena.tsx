@@ -2,10 +2,20 @@ import Image from "next/image";
 import { icons } from "../utils/images";
 import { wwePlayers } from "../constants/cards";
 import { useState } from "react";
+import { ExitGameDialog } from "./ExitGameDialog";
+import { SendForBattleModal } from "./SendForBattleModal";
 
 export const PlayArena = () => {
   const [cardSelected, setCardSelected] = useState({ image: "", name: "" });
-  const cards = [wwePlayers[0], wwePlayers[1], wwePlayers[2], wwePlayers[3], wwePlayers[4]];
+  const cards = [
+    wwePlayers[0],
+    wwePlayers[1],
+    wwePlayers[2],
+    wwePlayers[3],
+    wwePlayers[4],
+  ];
+  const [openExit, setOpenExit] = useState(false);
+  const [openConfirm, setOpenConfirm] = useState(false);
 
   const handleCardSelect = (card: any) => {
     setCardSelected(card);
@@ -31,15 +41,28 @@ export const PlayArena = () => {
             <Image src={icons.logoPink} alt="logoPink" />
           </div>
         </div>
-        <div className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom  w-[100%] h-[400px] flex justify-center items-center gap-8 mb-14">
+        <div
+          className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom  w-[100%] h-[400px] flex justify-center items-center gap-8 mb-14"
+          onClick={() => {
+            setOpenConfirm(true);
+          }}
+        >
           <div className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[260px] w-[200px]">
             <div className=" relative h-full">
               {/* <img src={icons.wweBg.src} alt={"players"} className="w-[100%] h-[80%] object-cover" /> */}
               <div className="w-[100%] absolute bottom-0 z-0">
                 {cardSelected.image ? (
                   <>
-                    <img src={cardSelected.image} alt={cardSelected.name} className="w-[100%] h-full object-cover" />
-                    <Image src={icons.arcadesFrameBg} alt="arcadesFrameBg" className="w-[100%] object-cover" />
+                    <img
+                      src={cardSelected.image}
+                      alt={cardSelected.name}
+                      className="w-[100%] h-full object-cover"
+                    />
+                    <Image
+                      src={icons.arcadesFrameBg}
+                      alt="arcadesFrameBg"
+                      className="w-[100%] object-cover"
+                    />
                   </>
                 ) : null}
               </div>
@@ -54,8 +77,16 @@ export const PlayArena = () => {
               <div className="w-[100%] absolute bottom-0 z-0">
                 {cardSelected.image ? (
                   <>
-                    <img src={cardSelected.image} alt={cardSelected.name} className="w-[100%] h-full object-cover" />
-                    <Image src={icons.arcadesFrameBg} alt="arcadesFrameBg" className="w-[100%] object-cover" />
+                    <img
+                      src={cardSelected.image}
+                      alt={cardSelected.name}
+                      className="w-[100%] h-full object-cover"
+                    />
+                    <Image
+                      src={icons.arcadesFrameBg}
+                      alt="arcadesFrameBg"
+                      className="w-[100%] object-cover"
+                    />
                   </>
                 ) : null}{" "}
               </div>
@@ -72,14 +103,45 @@ export const PlayArena = () => {
               key={key}
               className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[300px] w-[200px]"
             >
-              <img src={card.image} alt={card.name} className="w-[100%] h-full object-cover" />
+              <img
+                src={card.image}
+                alt={card.name}
+                className="w-[100%] h-full object-cover"
+              />
             </div>
           ))}
         </div>
       </div>
-      <div className="absolute top-0 left-0">
+      <div
+        className="absolute top-0 left-0"
+        onClick={() => {
+          setOpenExit(true);
+        }}
+      >
         <Image src={icons.closeRed} alt="closeRed" />
       </div>
+      {openExit && <ExitGameDialog open={openExit} setOpen={setOpenExit} />}
+      {openConfirm && (
+        <SendForBattleModal
+          open={openConfirm}
+          setOpen={setOpenConfirm}
+          playerData={{
+            id: 25,
+            name: "AJ Styles",
+            rank: 25,
+            height: "180",
+            weight: 218,
+            chest: "118",
+            biceps: "48",
+            gender: "male",
+            image:
+              "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/aj.png",
+            audio: "",
+            arcade_id: 1,
+            points: 5,
+          }}
+        />
+      )}
     </>
   );
 };
