@@ -1,6 +1,7 @@
 "use client";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
+import { LandingPage } from "../../../ui_components/LandingPage";
 
 export default function Home() {
   const { isConnecting, address, isConnected } = useAccount();
@@ -9,15 +10,8 @@ export default function Home() {
     openConnectModal?.();
   };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div
-        className="bg-black rounded-xl p-4 cursor-pointe"
-        onClick={() => {
-          handleConnectClick();
-        }}
-      >
-        <p className="text-white">Connect Wallet</p>
-      </div>
-    </main>
+    <div className="h-full relative">
+      <LandingPage />
+    </div>
   );
 }
