@@ -32,9 +32,10 @@ export const ExitGameDialog: FC<IExitGameDialog> = ({ open, setOpen }) => {
             </h2>
             <div className="flex items-center justify-center gap-5">
               <button
-              // onClick={() => {
-              //   setStep(step + 1);
-              // }}
+                // onClick={() => {
+                //   setStep(step + 1);
+                // }}
+                className=""
               >
                 <Image className="mt-10" src={icons.yesBtn} alt="yesBtn" />
               </button>

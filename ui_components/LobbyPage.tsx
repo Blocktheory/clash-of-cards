@@ -4,7 +4,13 @@ import { Arcades } from "./Arcades";
 import { StartGame } from "./StartGame";
 import { SelectCards } from "./SelectCards";
 import { PlayArena } from "./PlayArena";
-import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
+import {
+  useContentPair,
+  useFilterMessages,
+  useLightPush,
+  useStoreMessages,
+  useWaku,
+} from "@waku/react";
 import { WAKU_EVENTS } from "../constants";
 import protobuf from "protobufjs";
 
@@ -12,6 +18,7 @@ export const LobbyPage = () => {
   const [otherPlayerJoined, setOtherPlayerJoined] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
+  const [selectedArcade, setSelectedArcade] = useState();
   const overlayStyle: React.CSSProperties = {
     content: "''",
     position: "absolute",
@@ -40,11 +47,29 @@ export const LobbyPage = () => {
   const getUIComponent = () => {
     switch (step) {
       case 1:
-        return <Arcades setStep={setStep} step={step} />;
+        return (
+          <Arcades
+            setStep={setStep}
+            step={step}
+            setSelectedArcade={setSelectedArcade}
+          />
+        );
       case 2:
-        return <StartGame setStep={setStep} step={step} />;
+        return (
+          <StartGame
+            setStep={setStep}
+            step={step}
+            selectedArcade={selectedArcade}
+          />
+        );
       case 3:
-        return <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers} />;
+        return (
+          <SelectCards
+            setStep={setStep}
+            step={step}
+            selectPlayers={handleSelectedPlayers}
+          />
+        );
       case 4:
         return <PlayArena otherPlayerJoined={otherPlayerJoined} />;
       default:

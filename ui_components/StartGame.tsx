@@ -5,26 +5,42 @@ import { IArcades } from "./Arcades";
 import { JoinGameDialog } from "./JoinGameDialog";
 import { InviteFriendModal } from "./InviteFriendModal";
 import { playClickSound, playThemeSong } from "../utils";
+export interface IStartGame {
+  setStep: (val: number) => void;
+  step: number;
+  selectedArcade: any;
+}
 
-export const StartGame: FC<IArcades> = ({ step, setStep }) => {
+export const StartGame: FC<IStartGame> = ({
+  step,
+  setStep,
+  selectedArcade,
+}) => {
   const [openInvite, setOpenInvite] = useState(false);
   const [openJoin, setOpenJoin] = useState(false);
   const [code, setCode] = useState("");
   return (
     <div className="relative h-[100%] overflow-y-auto flex flex-col items-center text-white font-jura pt-[120px] min-h-[100vh] ">
-      <div className="flex gap-10">
+      <div className="flex gap-10 w-[70%]">
         <div className="border-2 border-[#8A57D4] shadow-custom">
-          <Image src={icons.wweBg} alt="wweBg" />
+          <img
+            className="object-cover w-full h-full"
+            src={selectedArcade.cover}
+            alt="wweBg"
+          />
         </div>
         <div className="flex flex-col justify-between">
           <div>
-            <p className="text-[64px] font-bold leading-[76px]">WWE</p>
-            <p className="text-[32px] font-bold leading-[38px]">
-              This is a placeholder text.
+            <p className="text-[44px] font-bold leading-[46px]">
+              {selectedArcade.title}
+            </p>
+            <p className="text-[22px] font-bold leading-[28px]">
+              {selectedArcade.description}
             </p>
           </div>
           <div className="flex gap-5">
             <button
+              className=""
               onClick={() => {
                 playClickSound();
                 setStep(step + 1);
@@ -37,7 +53,7 @@ export const StartGame: FC<IArcades> = ({ step, setStep }) => {
               />
             </button>
             <button
-              className="cursor-pointer"
+              className="cursor-pointer "
               onClick={() => {
                 setOpenJoin(true);
               }}
@@ -51,8 +67,10 @@ export const StartGame: FC<IArcades> = ({ step, setStep }) => {
           </div>
         </div>
       </div>
-      <div className="w-[70%] h-[400px] border-2 border-[#5E529E] mt-12 p-8">
-        <p className="text-[40px] font-bold leading-[48px]">{"Rules"}</p>
+      <div className="w-[70%] h-[250px] border-2 border-[#5E529E] mt-12 p-8">
+        <p className="text-[30px] font-bold leading-[48px]">
+          {selectedArcade.rules}
+        </p>
       </div>
       {openJoin && (
         <JoinGameDialog

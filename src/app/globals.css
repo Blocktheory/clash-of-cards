@@ -26,6 +26,23 @@ body {
   box-shadow: 0 4px 6px -1px rgba(125, 72, 203, 0.8), 0 2px 4px -1px rgba(125, 72, 203, 0.6);
 }
 
+@keyframes flameAnimationArcades {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(125, 72, 203, 0.6),
+      0 0 20px 4px rgba(125, 72, 203, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 15px 3px rgba(125, 72, 203, 0.8),
+      0 0 25px 5px rgba(125, 72, 203, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 10px 2px rgba(125, 72, 203, 0.6),
+      0 0 20px 4px rgba(125, 72, 203, 0.6);
+  }
+}
+
 @keyframes flameAnimation {
   0% {
     box-shadow: 0 0 10px 2px rgba(255, 165, 0, 0.6),
@@ -47,6 +64,11 @@ body {
   border: 2px solid black;
   /* Initial border */
   animation: flameAnimation 1s infinite;
+}
+
+.flame-border-arcade:hover {
+  /* Initial border */
+  animation: flameAnimationArcades 1s infinite;
 }
 
 .card-height {

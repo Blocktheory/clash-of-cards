@@ -102,7 +102,7 @@ export const SendForBattleModal: FC<ISendForBattleModal> = ({
                 </div>
               </div>
               <button
-                className="cursor-pointer"
+                className="cursor-pointer "
                 onClick={() => {
                   setOpen(false);
                 }}

@@ -49,7 +49,7 @@ export const JoinGameDialog: FC<IJoinGameDialog> = ({
                 />
               </div>
               <button
-                className="cursor-pointer"
+                className="cursor-pointer "
                 onClick={() => {
                   setOpen(false);
                 }}
