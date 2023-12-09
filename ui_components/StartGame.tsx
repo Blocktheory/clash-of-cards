@@ -13,9 +13,7 @@ export const StartGame: FC<IArcades> = ({ step, setStep }) => {
         <div className="flex flex-col justify-between">
           <div>
             <p className="text-[64px] font-bold leading-[76px]">WWE</p>
-            <p className="text-[32px] font-bold leading-[38px]">
-              This is a placeholder text.
-            </p>
+            <p className="text-[32px] font-bold leading-[38px]">This is a placeholder text.</p>
           </div>
           <div className="flex gap-5">
             <button
@@ -23,11 +21,7 @@ export const StartGame: FC<IArcades> = ({ step, setStep }) => {
                 setStep(step + 1);
               }}
             >
-              <Image
-                className="mt-10"
-                src={icons.newGameBtn}
-                alt="connectWalletBtn"
-              />
+              <Image className="mt-10" src={icons.newGameBtn} alt="connectWalletBtn" />
             </button>
             <button>
               <Image className="mt-10" src={icons.joinGameBtn} alt="guestBtn" />

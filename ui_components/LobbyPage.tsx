@@ -7,6 +7,7 @@ import { PlayArena } from "./PlayArena";
 
 export const LobbyPage = () => {
   const [step, setStep] = useState(1);
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
   const overlayStyle: React.CSSProperties = {
     content: "''",
     position: "absolute",
@@ -22,6 +23,16 @@ export const LobbyPage = () => {
     setStep(step + 1);
   };
 
+  const handleSelectedPlayers = (card: any) => {
+    const players = [...selectedPlayers, ...[card]];
+
+    const unique = players.filter((obj, index) => {
+      return index === players.findIndex((o) => obj.id === o.id);
+    });
+    //@ts-ignore
+    setSelectedPlayers(unique);
+  };
+
   const getUIComponent = () => {
     switch (step) {
       case 1:
@@ -29,7 +40,7 @@ export const LobbyPage = () => {
       case 2:
         return <StartGame setStep={setStep} step={step} />;
       case 3:
-        return <SelectCards setStep={setStep} step={step}></SelectCards>;
+        return <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers}></SelectCards>;
       case 4:
         return <PlayArena />;
       default:
@@ -40,6 +51,8 @@ export const LobbyPage = () => {
   useEffect(() => {
     getUIComponent();
   }, [step]);
+
+  console.log("selectedPlayers", selectedPlayers);
 
   return (
     <div className="h-full relative">

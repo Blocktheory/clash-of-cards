@@ -3,13 +3,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import protobuf from "protobufjs";
 import { useEffect, useState } from "react";
-import {
-  useContentPair,
-  useFilterMessages,
-  useLightPush,
-  useStoreMessages,
-  useWaku,
-} from "@waku/react";
+import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
 import { WAKU_EVENTS } from "../../../constants";
 import { LobbyPage } from "../../../ui_components/LobbyPage";
 
@@ -20,6 +14,7 @@ const ChatMessage = new protobuf.Type("ChatMessage")
 export default function Loby() {
   const { node } = useWaku() as any;
   const [player, setPlayer] = useState("");
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [otherPlayerJoined, setOtherPlayerJoined] = useState(false);
   const [nodeStart, setNodeStart] = useState(false);
   const [showHandleJoin, setShowHandleJoin] = useState(false);
