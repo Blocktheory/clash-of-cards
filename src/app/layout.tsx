@@ -12,14 +12,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <WagmiHoc>
-          <LightNodeProvider
-            options={{ defaultBootstrap: true }}
-            protocols={[Protocols.Store, Protocols.Filter, Protocols.LightPush]}
-          >
-            <ContentPairProvider contentTopic={"/battle-cards/"}>{children}</ContentPairProvider>
-          </LightNodeProvider>
-        </WagmiHoc>
+        <div id="root">
+          <WagmiHoc>
+            <LightNodeProvider
+              options={{ defaultBootstrap: true }}
+              protocols={[Protocols.Store, Protocols.Filter, Protocols.LightPush]}
+            >
+              <ContentPairProvider contentTopic={"/battle-cards/"}>{children}</ContentPairProvider>
+            </LightNodeProvider>
+          </WagmiHoc>
+        </div>
       </body>
     </html>
   );

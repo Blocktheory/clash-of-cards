@@ -14,6 +14,8 @@ import tickGreen from "../../public/assets/images/tick_green.svg";
 import logoPink from "../../public/assets/images/logo_pink.svg";
 import battleLogo from "../../public/assets/images/battle_logo.svg";
 import closeRed from "../../public/assets/images/close_red.svg";
+import modalClose from "../../public/assets/images/modal-close.svg";
+import copyCode from "../../public/assets/images/copy-code.svg";
 
 export type TImages =
   | "logoBig"
@@ -31,7 +33,10 @@ export type TImages =
   | "tickGreen"
   | "battleLogo"
   | "logoPink"
-  | "closeRed";
+  | "closeRed"
+  | "modalClose"
+  | "copyCode"
+  | "timerLight";
 
 export type TNextImage = {
   src: string;
@@ -50,10 +55,12 @@ export const icons: Record<TImages, TNextImage> = {
   joinGameBtn,
   selectGameBg,
   selectCardBg,
+  modalClose,
   timerLight,
   continueBtn,
   tickGreen,
   battleLogo,
   logoPink,
   closeRed,
+  copyCode,
 };

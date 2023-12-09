@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-icons": "^1.3.0",
     "@rainbow-me/rainbowkit": "^1.0.8",
     "@types/uuid": "^9.0.7",
     "@waku/react": "^0.0.5-77c40b4",
@@ -16,6 +19,7 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
     "viem": "^1.5.0",
     "wagmi": "^1.3.9"
