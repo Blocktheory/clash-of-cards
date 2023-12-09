@@ -18,12 +18,13 @@ const provider = new ethers.providers.JsonRpcProvider('https://rpc.testnet.mantl
 // Replace with your wallet private key
 const privateKey = '2c5a7dc1dd8187a982de4852bc51dc5b36ade115e7b5a978c048e4cbd63f6377';
 const wallet = new ethers.Wallet(privateKey, provider);
-
+console.log('Transaction wallet',wallet);
 // Create a contract instance
 const contract = new ethers.Contract(contractAddress, contractABI, wallet);
 
     async function sendTransaction() {
-        const tx = await contract.someFunctionWithParameters(selectedNft.id);
+        console.log('Transaction selectedNft',selectedNft.id);
+        const tx = await contract.safeMint(wallet.address,selectedNft.id);
         await tx.wait();
         console.log('Transaction successful',tx);
       }

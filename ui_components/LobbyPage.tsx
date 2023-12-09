@@ -13,6 +13,7 @@ import {
 } from "@waku/react";
 import { WAKU_EVENTS } from "../constants";
 import protobuf from "protobufjs";
+import { MintNft } from "./MintNft";
 
 export const LobbyPage = () => {
   const [otherPlayerJoined, setOtherPlayerJoined] = useState(false);
@@ -71,7 +72,8 @@ export const LobbyPage = () => {
           />
         );
       case 4:
-        return <PlayArena otherPlayerJoined={otherPlayerJoined} />;
+        return <MintNft setStep={setStep}
+        step={step} />;
       default:
         return <></>;
     }
