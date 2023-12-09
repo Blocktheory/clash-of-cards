@@ -40,7 +40,7 @@ export const LobbyPage = () => {
       case 2:
         return <StartGame setStep={setStep} step={step} />;
       case 3:
-        return <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers}></SelectCards>;
+        return <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers} />;
       case 4:
         return <PlayArena />;
       default:
