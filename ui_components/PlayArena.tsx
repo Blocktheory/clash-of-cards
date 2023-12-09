@@ -2,6 +2,8 @@ import Image from "next/image";
 import { icons } from "../utils/images";
 import { wwePlayers } from "../constants/cards";
 import { useState } from "react";
+import { ExitGameDialog } from "./ExitGameDialog";
+import { SendForBattleModal } from "./SendForBattleModal";
 
 export const PlayArena = () => {
   const [cardSelected, setCardSelected] = useState({ image: "", name: "" });
