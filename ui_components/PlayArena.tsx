@@ -4,6 +4,7 @@ import { wwePlayers } from "../constants/cards";
 import { useState } from "react";
 import { ExitGameDialog } from "./ExitGameDialog";
 import { SendForBattleModal } from "./SendForBattleModal";
+import { playClickSound } from "../utils";
 
 export const PlayArena = () => {
   const [cardSelected, setCardSelected] = useState({ image: "", name: "" });
@@ -99,7 +100,10 @@ export const PlayArena = () => {
         <div className="flex items-center justify-center gap-5 cursor-pointer">
           {cards.map((card, key) => (
             <div
-              onClick={() => handleCardSelect(card)}
+              onClick={() => {
+                playClickSound();
+                handleCardSelect(card);
+              }}
               key={key}
               className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[300px] w-[200px]"
             >

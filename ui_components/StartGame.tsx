@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { icons } from "../utils/images";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { IArcades } from "./Arcades";
 import { JoinGameDialog } from "./JoinGameDialog";
 import { InviteFriendModal } from "./InviteFriendModal";
+import { playClickSound, playThemeSong } from "../utils";
 
 export const StartGame: FC<IArcades> = ({ step, setStep }) => {
   const [openInvite, setOpenInvite] = useState(false);
@@ -25,7 +26,7 @@ export const StartGame: FC<IArcades> = ({ step, setStep }) => {
           <div className="flex gap-5">
             <button
               onClick={() => {
-                // setOpenInvite(true);
+                playClickSound();
                 setStep(step + 1);
               }}
             >
