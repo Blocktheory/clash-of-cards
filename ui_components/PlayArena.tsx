@@ -9,7 +9,9 @@ import { WAKU_EVENTS } from "../constants";
 import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
 import protobuf from "protobufjs";
 
-const ChatMessage = new protobuf.Type("ChatMessage").add(new protobuf.Field("sender", 1, "string")).add(new protobuf.Field("message", 2, "string"));
+const ChatMessage = new protobuf.Type("ChatMessage")
+  .add(new protobuf.Field("sender", 1, "string"))
+  .add(new protobuf.Field("message", 2, "string"));
 
 export const PlayArena = ({ otherPlayerJoined }: any) => {
   const { node } = useWaku() as any;
@@ -40,9 +42,7 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
     // if (cardSelected.name && !p2cardSelected.name) {
     //   return;
     // }
-    let _card = cards.filter((__card) => __card.id !== selectedCard.id);
-    setCards(_card);
-    setCardSelected(selectedCard);
+    debugger;
     if (player === "x") {
       handleSendMessage(WAKU_EVENTS.SET_SELECTED_CARD1, selectedCard);
     }
@@ -107,11 +107,17 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
   const handleEvents = (message: any) => {
     switch (message.type) {
       case WAKU_EVENTS.SET_SELECTED_CARD1:
+        const card1 = cards.filter((__card) => __card.id !== message.payload.id);
+        setCards(card1);
+        setCardSelected(message.payload);
         if (player === "y") {
           setP2CardSelected(message.payload);
         }
-        break;
+        return;
       case WAKU_EVENTS.SET_SELECTED_CARD2:
+        setCardSelected(message.payload);
+        const card2 = cards.filter((__card) => __card.id !== message.payload.id);
+        setCards(card2);
         if (player === "x") {
           setP2CardSelected(message.payload);
         }
@@ -149,7 +155,9 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
               <div className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[260px] w-[200px]">
                 <div className=" relative h-full">
                   {/* <img src={icons.wweBg.src} alt={"players"} className="w-[100%] h-[80%] object-cover" /> */}
-                  {cardSelected.image && <img src={cardSelected.image} alt={cardSelected.name} className="w-[100%] h-[80%] object-cover" />}
+                  {cardSelected.image && (
+                    <img src={cardSelected.image} alt={cardSelected.name} className="w-[100%] h-[80%] object-cover" />
+                  )}
                   <div className="w-[100%] absolute bottom-0 z-0">
                     {cardSelected.image ? (
                       <>
@@ -165,7 +173,15 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
               <Image src={icons.battleLogo} alt="battleLogo" />
               <div className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[260px] w-[200px]">
                 <div className=" relative h-full">
-                  {p2cardSelected.image ? <img src={p2cardSelected.image} alt={p2cardSelected.name} className="w-[100%] h-[80%] object-cover" /> : cardSelected.name && !p2cardSelected.name ? "Wait for other player" : null}
+                  {p2cardSelected.image ? (
+                    <img
+                      src={p2cardSelected.image}
+                      alt={p2cardSelected.name}
+                      className="w-[100%] h-[80%] object-cover"
+                    />
+                  ) : cardSelected.name && !p2cardSelected.name ? (
+                    "Wait for other player"
+                  ) : null}
                   <div className="w-[100%] absolute bottom-0 z-0">
                     {p2cardSelected.image ? (
                       <>
@@ -181,7 +197,13 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
             </div>
             <div className="flex items-center justify-center gap-5 cursor-pointer">
               {cards.map((card, key) => (
-                <div onClick={() => {}} key={key} className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[300px] w-[200px]">
+                <div
+                  onClick={() => {
+                    handleCardSelect(card);
+                  }}
+                  key={key}
+                  className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[300px] w-[200px]"
+                >
                   <img src={card.image} alt={card.name} className="w-[100%] h-full object-cover" />
                 </div>
               ))}
