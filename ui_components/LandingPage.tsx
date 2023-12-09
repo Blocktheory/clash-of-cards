@@ -4,6 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { playClickSound } from "../utils";
 
 export const LandingPage = () => {
   const { isConnecting, address, isConnected } = useAccount();
@@ -25,6 +26,7 @@ export const LandingPage = () => {
         <Image className="" src={icons.logoBig} alt="logoBig" />
         <button
           onClick={() => {
+            playClickSound();
             handleConnectClick();
           }}
         >
@@ -32,6 +34,7 @@ export const LandingPage = () => {
         </button>
         <button
           onClick={() => {
+            playClickSound();
             router.push("/lobby");
           }}
         >

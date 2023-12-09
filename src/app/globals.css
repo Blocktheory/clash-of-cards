@@ -22,8 +22,36 @@ body {
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
-.shadow-custom {
+.hover\:shadow-custom:hover {
   box-shadow: 0 4px 6px -1px rgba(125, 72, 203, 0.8), 0 2px 4px -1px rgba(125, 72, 203, 0.6);
+}
+
+@keyframes flameAnimation {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(255, 165, 0, 0.6),
+      0 0 20px 4px rgba(255, 0, 0, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 15px 3px rgba(255, 140, 0, 0.8),
+      0 0 25px 5px rgba(255, 0, 0, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 10px 2px rgba(255, 165, 0, 0.6),
+      0 0 20px 4px rgba(255, 0, 0, 0.6);
+  }
+}
+
+.flame-border:hover {
+  border: 2px solid black;
+  /* Initial border */
+  animation: flameAnimation 1s infinite;
+}
+
+.card-height {
+  min-height: 450px;
+  /* Adjust this value as needed */
 }
 
 /* reset */
