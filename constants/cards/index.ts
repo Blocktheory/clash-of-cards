@@ -376,6 +376,21 @@ export const wwePlayers = [
   },
 ];
 
+export const mint =[
+ 
+  {id:"ipfs://bafkreihar7lli2lu7qikh5ciwhhdosuyamzjl4gpa76n3zzw4cbe4j4x2y",
+   url:"https://ipfs.io/ipfs/QmW6HjSHtTSZWAVMYuMe1K5tYXz2hHmtZZiM5HkQStYyV1"},
+   {id:"ipfs://bafkreid4ggzy3a4ulfpnozttwbbasnzig2bzvbk6b3cg62uva2ov474lpq",
+   url:"https://ipfs.io/ipfs/QmVWkpvnuAxBPyeeHk5xuk4hzwzaPQUPKEUsBLDvdBrVg5"},
+   {id:"ipfs://bafkreidwk4o2nb7uofy6dbpbn3gy5lodn5ldobhl6vgyuyiu32uiara2oi",
+   url:"https://ipfs.io/ipfs/QmaJaNidXdtkhmCHQ3oCAKf6ykQpdMoaNFsU2Lx3DXYTJz"},
+   {id:"ipfs://bafkreic6fpmxbdcob5qc2vgqgtqjcttzx5fb5y5twmznewai3s5czv3mia",
+   url:"https://ipfs.io/ipfs/QmNtS8cXxeUB8cr8ftL7gAwobtAXrbcfuUEaF8undtH8xK"},
+   {id:"ipfs://bafkreiborxzqkvjnisohjkczjzxe4qucise7dwls7wgsdyyvudyaym7xii",
+   url:"https://ipfs.io/ipfs/QmfQwLdi9pWRUyJ7iY4Qmjv6xT3DNJyTkgrmc8EtJ1C4Xs"},
+  
+];
+
 export const arc = [
   {
     title: "WWE",
