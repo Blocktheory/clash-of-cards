@@ -12,7 +12,7 @@ const ChatMessage = new protobuf.Type("ChatMessage")
 
 export const PlayArena = ({ otherPlayerJoined }: any) => {
   const { node } = useWaku() as any;
-  const [card, setCards] = useState([wwePlayers[0], wwePlayers[1], wwePlayers[2], wwePlayers[3], wwePlayers[4]]);
+  const [cards, setCards] = useState([wwePlayers[0], wwePlayers[1], wwePlayers[2], wwePlayers[3], wwePlayers[4]]);
   const [player, setPlayer] = useState("");
   const [cardSelected, setCardSelected] = useState({ image: "", name: "" });
   const [p2cardSelected, setP2CardSelected] = useState({ image: "", name: "" });
@@ -37,7 +37,7 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
     // if (cardSelected.name && !p2cardSelected.name) {
     //   return;
     // }
-    let _card = card.filter((__card) => __card.id !== selectedCard.id);
+    let _card = cards.filter((__card) => __card.id !== selectedCard.id);
     setCards(_card);
     setCardSelected(selectedCard);
     if (player === "x") {
