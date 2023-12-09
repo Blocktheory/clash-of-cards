@@ -53,8 +53,7 @@ module.exports = {
       },
       boxShadow: {
         sm: "0px 1px 2px 0px #0000000D",
-        static:
-          "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px -1px rgba(0, 0, 0, 0.10)",
+        static: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px -1px rgba(0, 0, 0, 0.10)",
         card: "5px -4px 4px 0px rgba(0, 0, 0, 0.25)",
         sheet: "0px -5px 50px 5px #00000024",
       },
@@ -75,5 +74,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
