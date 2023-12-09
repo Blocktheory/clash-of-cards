@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { WagmiHoc } from "../../utils/wagmi";
+import { LightNodeProvider } from "@waku/react";
+import { Protocols } from "@waku/sdk";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <WagmiHoc>
-        <body className={inter.className}>{children}</body>
+        <LightNodeProvider
+          options={{ defaultBootstrap: true }}
+          protocols={[Protocols.Store, Protocols.Filter, Protocols.LightPush]}
+        >
+          <body className={inter.className}>{children}</body>
+        </LightNodeProvider>
       </WagmiHoc>
     </html>
   );
