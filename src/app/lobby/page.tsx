@@ -4,15 +4,18 @@ import { useAccount } from "wagmi";
 import protobuf from "protobufjs";
 import { useEffect, useState } from "react";
 import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
+import { WAKU_EVENTS } from "../../../constants";
 
 const ChatMessage = new protobuf.Type("ChatMessage")
-  .add(new protobuf.Field("timestamp", 1, "uint64"))
-  .add(new protobuf.Field("sender", 2, "string"))
-  .add(new protobuf.Field("message", 3, "string"));
+  .add(new protobuf.Field("sender", 1, "string"))
+  .add(new protobuf.Field("message", 2, "string"));
 
 export default function Loby() {
   const { node } = useWaku() as any;
+  const [player, setPlayer] = useState("");
+  const [otherPlayerJoined, setOtherPlayerJoined] = useState(false);
   const [nodeStart, setNodeStart] = useState(false);
+  const [showHandleJoin, setShowHandleJoin] = useState(false);
   const { decoder, encoder } = useContentPair();
   const { messages: storeMessages } = useStoreMessages({
     node,
@@ -31,7 +34,6 @@ export default function Loby() {
   async function sendMessage(sender: string, message: string) {
     try {
       const protoMessage = ChatMessage.create({
-        timestamp: Date.now(),
         sender,
         message,
       });
@@ -49,15 +51,11 @@ export default function Loby() {
 
   function decodeMessage(wakuMessage: any) {
     if (!wakuMessage.payload) return;
-    const { timestamp, sender, message }: any = ChatMessage.decode(wakuMessage.payload);
-    if (!timestamp || !sender || !message) return;
-    const time = new Date();
-    time.setTime(Number(timestamp));
+    const { sender, message }: any = ChatMessage.decode(wakuMessage.payload);
+    if (!sender || !message) return;
     return {
       message,
-      timestamp: time,
       sender,
-      timestampInt: wakuMessage.timestamp,
     };
   }
 
@@ -65,6 +63,24 @@ export default function Loby() {
     const messages = storeMessages.concat(filterMessages);
     const decodedMessages = messages.map((message) => decodeMessage(message));
     console.log("decodedMessages", decodedMessages);
+    const latestMessage = decodedMessages.pop();
+    if (!latestMessage) return;
+    const message = JSON.parse(latestMessage?.message as string);
+    console.log("message", message);
+    switch (message.type) {
+      case WAKU_EVENTS.SET_JOIN_GAME:
+        if (!player) {
+          setOtherPlayerJoined(true);
+          setShowHandleJoin(true);
+          setPlayer("player2");
+        }
+        break;
+      case WAKU_EVENTS.SET_PLAYER_JOINED:
+        setOtherPlayerJoined(true);
+        break;
+      default:
+        break;
+    }
   }, [storeMessages, filterMessages]);
 
   useEffect(() => {
@@ -73,18 +89,44 @@ export default function Loby() {
     }
   }, [node]);
 
-  const handleSendMessage = () => {
-    sendMessage("send message", "testing@123");
+  const handleSendMessage = (event: string, msg: any) => {
+    const message: any = {
+      sender: player,
+      type: event,
+      payload: msg,
+    };
+    const msgStr = JSON.stringify(message);
+    sendMessage("senderMsg", msgStr);
+    setPlayer("player1");
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="min-h-screen p-24">
       {!nodeStart ? (
         <>Loading...</>
       ) : (
-        <button className="btn bg-gradient-to-bl" onClick={handleSendMessage}>
-          Send Message
-        </button>
+        <>
+          <button
+            className="btn bg-gradient-to-bl"
+            onClick={() => {
+              setPlayer("player1");
+              handleSendMessage(WAKU_EVENTS.SET_JOIN_GAME, true);
+            }}
+          >
+            Send Message
+          </button>
+          <br />
+          {showHandleJoin && (
+            <button
+              className="btn bg-gradient-to-bl"
+              onClick={() => {
+                handleSendMessage(WAKU_EVENTS.SET_PLAYER_JOINED, true);
+              }}
+            >
+              Handle Join Game
+            </button>
+          )}
+        </>
       )}
     </div>
   );
