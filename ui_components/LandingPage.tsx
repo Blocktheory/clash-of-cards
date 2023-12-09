@@ -25,14 +25,20 @@ export const LandingPage = () => {
       <div className="flex flex-col text-center relative z-10">
         <Image className="" src={icons.logoBig} alt="logoBig" />
         <button
+          className=""
           onClick={() => {
             playClickSound();
             handleConnectClick();
           }}
         >
-          <Image className="mt-10" src={icons.connectWalletBtn} alt="connectWalletBtn" />
+          <Image
+            className="mt-10"
+            src={icons.connectWalletBtn}
+            alt="connectWalletBtn"
+          />
         </button>
         <button
+          className=""
           onClick={() => {
             playClickSound();
             router.push("/lobby");
