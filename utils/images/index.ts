@@ -9,6 +9,11 @@ import joinGameBtn from "../../public/assets/images/join_game_btn.svg";
 import selectGameBg from "../../public/assets/images/select_game_bg.svg";
 import selectCardBg from "../../public/assets/images/select_card_bg.svg";
 import timerLight from "../../public/assets/images/timer_light.svg";
+import continueBtn from "../../public/assets/images/continue_btn.svg";
+import tickGreen from "../../public/assets/images/tick_green.svg";
+import logoPink from "../../public/assets/images/logo_pink.svg";
+import battleLogo from "../../public/assets/images/battle_logo.svg";
+import closeRed from "../../public/assets/images/close_red.svg";
 
 export type TImages =
   | "logoBig"
@@ -21,7 +26,12 @@ export type TImages =
   | "joinGameBtn"
   | "selectGameBg"
   | "selectCardBg"
-  | "timerLight";
+  | "timerLight"
+  | "continueBtn"
+  | "tickGreen"
+  | "battleLogo"
+  | "logoPink"
+  | "closeRed";
 
 export type TNextImage = {
   src: string;
@@ -41,4 +51,9 @@ export const icons: Record<TImages, TNextImage> = {
   selectGameBg,
   selectCardBg,
   timerLight,
+  continueBtn,
+  tickGreen,
+  battleLogo,
+  logoPink,
+  closeRed,
 };
