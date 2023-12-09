@@ -3,22 +3,40 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { icons } from "../utils/images";
 import Image from "next/image";
 
-const InviteFriendModal = (props: any) => {
-  const { isOpen, setIsOpen } = props;
+export interface IInviteFriendModal {
+  open: boolean;
+  setOpen: (val: boolean) => void;
+}
+
+export const InviteFriendModal: FC<IInviteFriendModal> = ({
+  open,
+  setOpen,
+}) => {
   return (
-    <Dialog.Root open={isOpen}>
+    <Dialog.Root
+      open={open}
+      onOpenChange={() => {
+        setOpen(!open);
+      }}
+    >
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent inviteFriendModal relative">
           <Image
+            onClick={() => {
+              setOpen(false);
+            }}
             src={icons.modalClose}
             alt="arcadesFrameBg"
             className="w-[22px] h=[22px] object-cover absolute right-8 cursor-pointer"
           />
-          <div className="p-10 font-jura  text-center">
-            <h2 className="font-bold text-[48px] leading-[56px]  mb-6">Invite your friends</h2>
+          <div className="p-10 font-jura text-white text-center">
+            <h2 className="font-bold text-[48px] leading-[56px]  mb-6">
+              Invite your friends
+            </h2>
             <p className="text-[32px] leading-[38px] mb-4">
-              Share the invite code with your friends and wait till they join to play
+              Share the invite code with your friends and wait till they join to
+              play
             </p>
             <button type="button" className="buttonSecondary px-20">
               <span className="text-[56px]">0ACDB</span>
@@ -29,10 +47,9 @@ const InviteFriendModal = (props: any) => {
               />
             </button>
           </div>
-          <Dialog.Close asChild></Dialog.Close>
+          <Dialog.Close asChild></Dialog.Close>x
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   );
 };
-export default InviteFriendModal;
