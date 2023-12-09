@@ -4,8 +4,12 @@ import { Arcades } from "./Arcades";
 import { StartGame } from "./StartGame";
 import { SelectCards } from "./SelectCards";
 import { PlayArena } from "./PlayArena";
+import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
+import { WAKU_EVENTS } from "../constants";
+import protobuf from "protobufjs";
 
 export const LobbyPage = () => {
+  const [otherPlayerJoined, setOtherPlayerJoined] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const overlayStyle: React.CSSProperties = {
@@ -42,7 +46,7 @@ export const LobbyPage = () => {
       case 3:
         return <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers} />;
       case 4:
-        return <PlayArena />;
+        return <PlayArena otherPlayerJoined={otherPlayerJoined} />;
       default:
         return <></>;
     }
@@ -51,8 +55,6 @@ export const LobbyPage = () => {
   useEffect(() => {
     getUIComponent();
   }, [step]);
-
-  console.log("selectedPlayers", selectedPlayers);
 
   return (
     <div className="h-full relative">
