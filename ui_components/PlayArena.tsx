@@ -12,10 +12,10 @@ const ChatMessage = new protobuf.Type("ChatMessage")
 
 export const PlayArena = ({ otherPlayerJoined }: any) => {
   const { node } = useWaku() as any;
+  const [card, setCards] = useState([wwePlayers[0], wwePlayers[1], wwePlayers[2], wwePlayers[3], wwePlayers[4]]);
   const [player, setPlayer] = useState("");
   const [cardSelected, setCardSelected] = useState({ image: "", name: "" });
   const [p2cardSelected, setP2CardSelected] = useState({ image: "", name: "" });
-  const cards = [wwePlayers[0], wwePlayers[1], wwePlayers[2], wwePlayers[3], wwePlayers[4]];
   const { decoder, encoder } = useContentPair();
   const { messages: storeMessages } = useStoreMessages({
     node,
@@ -33,16 +33,18 @@ export const PlayArena = ({ otherPlayerJoined }: any) => {
     setPlayer(player);
   }, []);
 
-  const handleCardSelect = (card: any) => {
+  const handleCardSelect = (selectedCard: any) => {
     // if (cardSelected.name && !p2cardSelected.name) {
     //   return;
     // }
-    setCardSelected(card);
+    let _card = card.filter((__card) => __card.id !== selectedCard.id);
+    setCards(_card);
+    setCardSelected(selectedCard);
     if (player === "x") {
-      handleSendMessage(WAKU_EVENTS.SET_SELECTED_CARD1, card);
+      handleSendMessage(WAKU_EVENTS.SET_SELECTED_CARD1, selectedCard);
     }
     if (player === "y") {
-      handleSendMessage(WAKU_EVENTS.SET_SELECTED_CARD2, card);
+      handleSendMessage(WAKU_EVENTS.SET_SELECTED_CARD2, selectedCard);
     }
   };
 
