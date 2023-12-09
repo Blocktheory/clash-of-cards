@@ -11,6 +11,14 @@ export interface IArcades {
   selectPlayers?: any;
 }
 
+export interface ISelectCards {
+  setStep: (val: number) => void;
+  step: number;
+  wwePlayers: any;
+  setSelectedArcade?: (val: any) => void;
+  selectPlayers?: any;
+}
+
 export const Arcades: FC<IArcades> = ({ step, setStep, setSelectedArcade }) => {
   const handleSelectArcade = (item: any) => {
     setSelectedArcade?.(item);

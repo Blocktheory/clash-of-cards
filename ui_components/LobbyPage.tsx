@@ -4,13 +4,7 @@ import { Arcades } from "./Arcades";
 import { StartGame } from "./StartGame";
 import { SelectCards } from "./SelectCards";
 import { PlayArena } from "./PlayArena";
-import {
-  useContentPair,
-  useFilterMessages,
-  useLightPush,
-  useStoreMessages,
-  useWaku,
-} from "@waku/react";
+import { wwePlayers } from "../constants/cards";
 import { WAKU_EVENTS } from "../constants";
 import protobuf from "protobufjs";
 import { MintNft } from "./MintNft";
@@ -20,6 +14,7 @@ export const LobbyPage = () => {
   const [step, setStep] = useState(1);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [selectedArcade, setSelectedArcade] = useState();
+  const [playerList, setPlayersList] = useState(wwePlayers);
   const overlayStyle: React.CSSProperties = {
     content: "''",
     position: "absolute",
@@ -37,12 +32,21 @@ export const LobbyPage = () => {
 
   const handleSelectedPlayers = (card: any) => {
     const players = [...selectedPlayers, ...[card]];
+    let list = playerList;
+
+    const updatedList = list.map((player) => {
+      if (player.id === card.id) {
+        return { ...player, selected: !player.selected };
+      }
+      return player;
+    });
 
     const unique = players.filter((obj, index) => {
       return index === players.findIndex((o) => obj.id === o.id);
     });
     //@ts-ignore
     setSelectedPlayers(unique);
+    setPlayersList(updatedList);
   };
 
   const getUIComponent = () => {
@@ -69,6 +73,7 @@ export const LobbyPage = () => {
             setStep={setStep}
             step={step}
             selectPlayers={handleSelectedPlayers}
+            wwePlayers={playerList}
           />
         );
       case 4:

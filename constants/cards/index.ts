@@ -8,6 +8,7 @@ export const wwePlayers = [
     chest: "127",
     biceps: "53",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/cena.png",
     audio: "",
@@ -23,6 +24,7 @@ export const wwePlayers = [
     chest: "130",
     biceps: "55",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/undertaker.png",
     audio: "",
@@ -38,6 +40,7 @@ export const wwePlayers = [
     chest: "122",
     biceps: "51",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/hhh.png",
     audio: "",
@@ -53,6 +56,7 @@ export const wwePlayers = [
     chest: "150",
     biceps: "60",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/bigshow.png",
     audio: "",
@@ -68,6 +72,7 @@ export const wwePlayers = [
     chest: "147",
     biceps: "58",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/khali.png",
     audio: "",
@@ -83,6 +88,7 @@ export const wwePlayers = [
     chest: "130",
     biceps: "55",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/lesnar.png",
     audio: "",
@@ -98,6 +104,7 @@ export const wwePlayers = [
     chest: "120",
     biceps: "50",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/punk.png",
     audio: "",
@@ -113,6 +120,7 @@ export const wwePlayers = [
     chest: "128",
     biceps: "54",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/roman.png",
     audio: "",
@@ -128,6 +136,7 @@ export const wwePlayers = [
     chest: "155",
     biceps: "62",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/rikhishi.png",
     audio: "",
@@ -143,6 +152,7 @@ export const wwePlayers = [
     chest: "115",
     biceps: "47",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/ray.png",
     audio: "",
@@ -158,6 +168,7 @@ export const wwePlayers = [
     chest: "125",
     biceps: "52",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/edge.png",
     audio: "",
@@ -173,6 +184,7 @@ export const wwePlayers = [
     chest: "148",
     biceps: "57",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/kane.png",
     audio: "",
@@ -188,6 +200,7 @@ export const wwePlayers = [
     chest: "118",
     biceps: "48",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/sincara.png",
     audio: "",
@@ -203,6 +216,7 @@ export const wwePlayers = [
     chest: "127",
     biceps: "53",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/sting.png",
     audio: "",
@@ -218,6 +232,7 @@ export const wwePlayers = [
     chest: "145",
     biceps: "59",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/umanga.png",
     audio: "",
@@ -233,6 +248,7 @@ export const wwePlayers = [
     chest: "125",
     biceps: "52",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/rock.png",
     audio: "",
@@ -248,6 +264,7 @@ export const wwePlayers = [
     chest: "120",
     biceps: "50",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/shawn.png",
     audio: "",
@@ -263,6 +280,7 @@ export const wwePlayers = [
     chest: "122",
     biceps: "52",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/booker.png",
     audio: "",
@@ -278,6 +296,7 @@ export const wwePlayers = [
     chest: "132",
     biceps: "56",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/batista.png",
     audio: "",
@@ -293,6 +312,7 @@ export const wwePlayers = [
     chest: "124",
     biceps: "53",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/randy.png",
     audio: "",
@@ -308,6 +328,7 @@ export const wwePlayers = [
     chest: "131",
     biceps: "55",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/gold.png",
     audio: "",
@@ -323,6 +344,7 @@ export const wwePlayers = [
     chest: "119",
     biceps: "49",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/chris.png",
     audio: "",
@@ -338,6 +360,7 @@ export const wwePlayers = [
     chest: "129",
     biceps: "52",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/eddie.png",
     audio: "",
@@ -353,6 +376,7 @@ export const wwePlayers = [
     chest: "121",
     biceps: "51",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/kurt.png",
     audio: "",
@@ -368,6 +392,7 @@ export const wwePlayers = [
     chest: "118",
     biceps: "48",
     gender: "male",
+    selected: false,
     image:
       "https://ds-storage.sgp1.cdn.digitaloceanspaces.com/ethindia/cards/aj.png",
     audio: "",
@@ -802,6 +827,27 @@ export const mint =[
    {id:"ipfs://bafkreiborxzqkvjnisohjkczjzxe4qucise7dwls7wgsdyyvudyaym7xii",
    url:"https://ipfs.io/ipfs/QmfQwLdi9pWRUyJ7iY4Qmjv6xT3DNJyTkgrmc8EtJ1C4Xs"},
   
+export const mint = [
+  {
+    id: "ipfs://bafkreihar7lli2lu7qikh5ciwhhdosuyamzjl4gpa76n3zzw4cbe4j4x2y",
+    url: "https://ipfs.io/ipfs/QmW6HjSHtTSZWAVMYuMe1K5tYXz2hHmtZZiM5HkQStYyV1",
+  },
+  {
+    id: "ipfs://bafkreid4ggzy3a4ulfpnozttwbbasnzig2bzvbk6b3cg62uva2ov474lpq",
+    url: "https://ipfs.io/ipfs/QmVWkpvnuAxBPyeeHk5xuk4hzwzaPQUPKEUsBLDvdBrVg5",
+  },
+  {
+    id: "ipfs://bafkreidwk4o2nb7uofy6dbpbn3gy5lodn5ldobhl6vgyuyiu32uiara2oi",
+    url: "https://ipfs.io/ipfs/QmaJaNidXdtkhmCHQ3oCAKf6ykQpdMoaNFsU2Lx3DXYTJz",
+  },
+  {
+    id: "ipfs://bafkreic6fpmxbdcob5qc2vgqgtqjcttzx5fb5y5twmznewai3s5czv3mia",
+    url: "https://ipfs.io/ipfs/QmNtS8cXxeUB8cr8ftL7gAwobtAXrbcfuUEaF8undtH8xK",
+  },
+  {
+    id: "ipfs://bafkreiborxzqkvjnisohjkczjzxe4qucise7dwls7wgsdyyvudyaym7xii",
+    url: "https://ipfs.io/ipfs/QmfQwLdi9pWRUyJ7iY4Qmjv6xT3DNJyTkgrmc8EtJ1C4Xs",
+  },
 ];
 
 export const arc = [

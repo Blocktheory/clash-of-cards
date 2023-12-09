@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { icons } from "../utils/images";
 import { FC } from "react";
-import { wwePlayers } from "../constants/cards";
-import { IArcades } from "./Arcades";
+import { IArcades, ISelectCards } from "./Arcades";
 import { convertCmToFeetAndInches, playClickSound } from "../utils";
 
-export const SelectCards: FC<IArcades> = ({ step, setStep, selectPlayers }) => {
+export const SelectCards: FC<ISelectCards> = ({
+  step,
+  setStep,
+  selectPlayers,
+  wwePlayers,
+}) => {
   return (
     <div className="container mx-auto w-full relative h-full flex flex-col  text-white font-jura justify-center min-h-[100vh] overflow-hidden">
       <p className="font-bold text-[38px] leading-[44px]  mb-1 mt-5">
@@ -20,7 +24,7 @@ export const SelectCards: FC<IArcades> = ({ step, setStep, selectPlayers }) => {
         </p> */}
       </div>
       <div className="relative grid grid-cols-5 gap-4 overflow-y-auto py-5">
-        {wwePlayers.map((player, index) => (
+        {wwePlayers.map((player: any, index: number) => (
           <div
             key={index}
             onClick={() => {
@@ -35,7 +39,13 @@ export const SelectCards: FC<IArcades> = ({ step, setStep, selectPlayers }) => {
                 alt={player.name}
                 className="w-[100%] h-full object-cover"
               />
-              {/* <Image className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20" src={icons.tickGreen} alt="tickGreen" /> */}
+              {player.selected && (
+                <Image
+                  className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20"
+                  src={icons.tickGreen}
+                  alt="tickGreen"
+                />
+              )}
               <div className="absolute left-5 top-[40%] bg-white rounded-sm px-2 py-1">
                 {/* <p className="text-[24px] leading-[28px] text-black font-black ">{player.points}</p> */}
               </div>
