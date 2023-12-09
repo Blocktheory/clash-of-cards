@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,4 +25,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.shadow-custom {
+  box-shadow: 0 4px 6px -1px rgba(125, 72, 203, 0.8), 0 2px 4px -1px rgba(125, 72, 203, 0.6);
 }

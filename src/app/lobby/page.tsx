@@ -3,8 +3,15 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import protobuf from "protobufjs";
 import { useEffect, useState } from "react";
-import { useContentPair, useFilterMessages, useLightPush, useStoreMessages, useWaku } from "@waku/react";
+import {
+  useContentPair,
+  useFilterMessages,
+  useLightPush,
+  useStoreMessages,
+  useWaku,
+} from "@waku/react";
 import { WAKU_EVENTS } from "../../../constants";
+import { LobbyPage } from "../../../ui_components/LobbyPage";
 
 const ChatMessage = new protobuf.Type("ChatMessage")
   .add(new protobuf.Field("sender", 1, "string"))
@@ -101,33 +108,36 @@ export default function Loby() {
   };
 
   return (
-    <div className="min-h-screen p-24">
-      {!nodeStart ? (
-        <>Loading...</>
-      ) : (
-        <>
-          <button
-            className="btn bg-gradient-to-bl"
-            onClick={() => {
-              setPlayer("player1");
-              handleSendMessage(WAKU_EVENTS.SET_JOIN_GAME, true);
-            }}
-          >
-            Send Message
-          </button>
-          <br />
-          {showHandleJoin && (
-            <button
-              className="btn bg-gradient-to-bl"
-              onClick={() => {
-                handleSendMessage(WAKU_EVENTS.SET_PLAYER_JOINED, true);
-              }}
-            >
-              Handle Join Game
-            </button>
-          )}
-        </>
-      )}
+    <div className="h-full relative">
+      <LobbyPage />
     </div>
+    // <div className="min-h-screen p-24">
+    //   {!nodeStart ? (
+    //     <>Loading...</>
+    //   ) : (
+    //     <>
+    //       <button
+    //         className="btn bg-gradient-to-bl"
+    //         onClick={() => {
+    //           setPlayer("player1");
+    //           handleSendMessage(WAKU_EVENTS.SET_JOIN_GAME, true);
+    //         }}
+    //       >
+    //         Send Message
+    //       </button>
+    //       <br />
+    //       {showHandleJoin && (
+    //         <button
+    //           className="btn bg-gradient-to-bl"
+    //           onClick={() => {
+    //             handleSendMessage(WAKU_EVENTS.SET_PLAYER_JOINED, true);
+    //           }}
+    //         >
+    //           Handle Join Game
+    //         </button>
+    //       )}
+    //     </>
+    //   )}
+    // </div>
   );
 }

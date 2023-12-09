@@ -1,22 +1,39 @@
 import Image from "next/image";
 import { icons } from "../utils/images";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
+import { useRouter } from "next/navigation";
 
 export const LandingPage = () => {
+  const { isConnecting, address, isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
+  const handleConnectClick = async () => {
+    openConnectModal?.();
+  };
+  const router = useRouter();
+
   return (
-    <div className="relative overflow-hidden">
-      <div className="h-full relative overflow-hidden">
-        <div className="flex flex-col items-center justify-center">
-          <Image className="" src={icons.logoBig} alt="logoBig" />
+    <div className="relative h-full flex items-center justify-center min-h-[100vh] overflow-hidden">
+      <div className="flex flex-col text-center relative z-10">
+        <Image className="" src={icons.logoBig} alt="logoBig" />
+        <button
+          onClick={() => {
+            handleConnectClick();
+          }}
+        >
           <Image
-            className=""
+            className="mt-10"
             src={icons.connectWalletBtn}
             alt="connectWalletBtn"
           />
-          <Image className="" src={icons.guestBtn} alt="guestBtn" />
-        </div>
-      </div>
-      <div className="absolute max-h-full left-0 top-0 overflow-hidden z-0">
-        <Image className="h-full" src={icons.landingBg} alt="landingBg" />
+        </button>
+        <button
+          onClick={() => {
+            router.push("/lobby");
+          }}
+        >
+          <Image className="mt-10" src={icons.guestBtn} alt="guestBtn" />
+        </button>
       </div>
     </div>
   );
