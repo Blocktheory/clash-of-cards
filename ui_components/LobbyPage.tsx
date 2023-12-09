@@ -3,6 +3,7 @@ import { icons } from "../utils/images";
 import { Arcades } from "./Arcades";
 import { StartGame } from "./StartGame";
 import { SelectCards } from "./SelectCards";
+import { PlayArena } from "./PlayArena";
 
 export const LobbyPage = () => {
   const [step, setStep] = useState(1);
@@ -29,6 +30,8 @@ export const LobbyPage = () => {
         return <StartGame setStep={setStep} step={step} />;
       case 3:
         return <SelectCards setStep={setStep} step={step}></SelectCards>;
+      case 4:
+        return <PlayArena />;
       default:
         return <></>;
     }
