@@ -16,6 +16,7 @@ import battleLogo from "../../public/assets/images/battle_logo.svg";
 import closeRed from "../../public/assets/images/close_red.svg";
 import modalClose from "../../public/assets/images/modal-close.svg";
 import copyCode from "../../public/assets/images/copy-code.svg";
+import mintBtn from "../../public/assets/images/mint_btn.svg";
 
 export type TImages =
   | "logoBig"
@@ -36,7 +37,8 @@ export type TImages =
   | "closeRed"
   | "modalClose"
   | "copyCode"
-  | "timerLight";
+  | "timerLight"
+  | "mintBtn";
 
 export type TNextImage = {
   src: string;
@@ -63,4 +65,5 @@ export const icons: Record<TImages, TNextImage> = {
   logoPink,
   closeRed,
   copyCode,
+  mintBtn,
 };
