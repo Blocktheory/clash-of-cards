@@ -13,7 +13,7 @@ export const MintNft: FC<IArcades> = ({ step, setStep }) => {
 const contractAddress = '0xf2e07b166bC7AB1F1A3cd3bcB89848df58e6ab52';
 
 
-const provider = new ethers.providers.JsonRpcProvider('https://rpc.testnet.mantle.xyz');
+const provider = new ethers.JsonRpcProvider('https://rpc.testnet.mantle.xyz');
 
 // Replace with your wallet private key
 const privateKey = '2c5a7dc1dd8187a982de4852bc51dc5b36ade115e7b5a978c048e4cbd63f6377';
@@ -54,7 +54,7 @@ const contract = new ethers.Contract(contractAddress, contractABI, wallet);
             </p>
           </div>
           <div className="bg-[#573685] border-2 border-[#8A57D4] shadow-custom h-[260px] w-[200px] mt-10">
-            {selectedNft.url && (
+            {selectedNft?.url && (
               <div className=" relative h-full">
                 <img
                   src={selectedNft.url}

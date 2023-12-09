@@ -21,9 +21,10 @@ export interface ISelectCards {
 
 export const Arcades: FC<IArcades> = ({ step, setStep, setSelectedArcade }) => {
   const handleSelectArcade = (item: any) => {
+    console.log("arc select ", step)
+    setStep(step + 1);
     setSelectedArcade?.(item);
     playClickSound();
-    setStep(step + 1);
   };
   return (
     <div className="relative h-full flex flex-col items-center text-white font-jura justify-center min-h-[100vh] overflow-hidden">
