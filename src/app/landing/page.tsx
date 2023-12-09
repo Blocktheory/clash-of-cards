@@ -9,6 +9,7 @@ export default function Home() {
   const handleConnectClick = async () => {
     openConnectModal?.();
   };
+
   return (
     <div className="h-full relative">
       <LandingPage />
