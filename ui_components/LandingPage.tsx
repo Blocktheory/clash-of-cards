@@ -22,7 +22,7 @@ export const LandingPage = () => {
 
   return (
     <div className="relative h-full flex items-center justify-center min-h-[100vh] overflow-hidden">
-      <div className="flex flex-col text-center relative z-10">
+      <div className="flex flex-col text-center relative z-10 cursor-pointer">
         <Image className="" src={icons.logoBig} alt="logoBig" />
         <button
           className=""
@@ -31,14 +31,10 @@ export const LandingPage = () => {
             handleConnectClick();
           }}
         >
-          <Image
-            className="mt-10"
-            src={icons.connectWalletBtn}
-            alt="connectWalletBtn"
-          />
+          <Image className="mt-10" src={icons.connectWalletBtn} alt="connectWalletBtn" />
         </button>
         <button
-          className=""
+          className="cursor-pointer"
           onClick={() => {
             playClickSound();
             router.push("/lobby");
