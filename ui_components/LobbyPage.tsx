@@ -52,33 +52,15 @@ export const LobbyPage = () => {
   const getUIComponent = () => {
     switch (step) {
       case 1:
-        return (
-          <Arcades
-            setStep={setStep}
-            step={step}
-            setSelectedArcade={setSelectedArcade}
-          />
-        );
+        return <Arcades setStep={setStep} step={step} setSelectedArcade={setSelectedArcade} />;
       case 2:
-        return (
-          <StartGame
-            setStep={setStep}
-            step={step}
-            selectedArcade={selectedArcade}
-          />
-        );
+        return <StartGame setStep={setStep} step={step} selectedArcade={selectedArcade} />;
       case 3:
         return (
-          <SelectCards
-            setStep={setStep}
-            step={step}
-            selectPlayers={handleSelectedPlayers}
-            wwePlayers={playerList}
-          />
+          <SelectCards setStep={setStep} step={step} selectPlayers={handleSelectedPlayers} wwePlayers={playerList} />
         );
       case 4:
-        return <MintNft setStep={setStep}
-        step={step} />;
+        return <PlayArena />;
       default:
         return <></>;
     }
